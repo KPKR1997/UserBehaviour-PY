@@ -27,7 +27,12 @@ class CleanData:
         self.data = data
     
     def clean_raw_data(self):
-        data = self.data
-        return data
+        df = self.data
+        df = df.drop(['OrgId','ParticipantId', 'DeviceId'], axis = 1)
+        df = df.drop_duplicates()
+        df = df.dropna()
+        df['eventtime'] = pd.to_datetime(df['eventtime'], errors='coerce')
+        df = df.sort_values(by='eventtime', ascending=True)
+        return df
 
 

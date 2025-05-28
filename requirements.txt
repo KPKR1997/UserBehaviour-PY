@@ -3,4 +3,6 @@ pandas
 matplotlib
 scipy
 datetime
+seaborn
+tldextract
 -e .

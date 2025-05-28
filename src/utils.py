@@ -1,4 +1,5 @@
 import os
+import sys
 import matplotlib.pyplot as plt
 from src.exception import CustomException
 from src.logger import logging
@@ -17,6 +18,6 @@ class SaveChart:
         try:
             fig.savefig(full_path, format=fmt, bbox_inches="tight")
             logging.info(f"Chart - {filename} saved to {full_path}")
-        except EException as e:
+        except Exception as e:
             raise CustomException(e,sys)
         plt.close(fig)

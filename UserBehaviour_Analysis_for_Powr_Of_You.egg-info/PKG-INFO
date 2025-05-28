@@ -8,6 +8,8 @@ Requires-Dist: pandas
 Requires-Dist: matplotlib
 Requires-Dist: scipy
 Requires-Dist: datetime
+Requires-Dist: seaborn
+Requires-Dist: tldextract
 Dynamic: author
 Dynamic: author-email
 Dynamic: requires-dist
