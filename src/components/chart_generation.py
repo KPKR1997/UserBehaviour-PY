@@ -3,6 +3,7 @@ import os
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import numpy as np
+import seaborn as sns
 
 from src.exception import CustomException
 from src.logger import logging
@@ -117,4 +118,38 @@ class chartGenerator:
         plt.tight_layout()
         save_chart.save(fig, filename="Most typed domains")
 
-    def switch_page_frequency()
+    def inactivity_by_date(self):
+        df = self.data
+
+        fig = plt.figure(figsize=(12, 6))
+        plt.plot(df['eventtime'], df['inactivity'], color='blue', linewidth=2, label='Inactivity')
+        plt.xlabel('Event Time', fontsize=12)
+        plt.ylabel('Inactivity (minutes)', fontsize=12)
+        plt.title('Inactivity vs Event Time', fontsize=14)
+        plt.xticks(rotation=45)  
+        plt.grid(True, linestyle='--', alpha=0.5)
+        plt.tight_layout()
+        save_chart.save(fig, filename="inactivity_by_date")
+
+    def domain_exit_point(self):
+        df = self.data.copy()
+        
+        
+        df['prev_domain'] = df['domain'].shift(1)
+        df['domain_change'] = df['domain'] != df['prev_domain']
+
+        
+        domain_change_pages = df[df['domain_change']]['title']
+        page_counts = domain_change_pages.value_counts().head(10)
+
+        
+        fig, ax = plt.subplots(figsize=(12, 6))
+        sns.barplot(x=page_counts.values, y=page_counts.index, palette="magma", ax=ax)
+
+        ax.set_title('Top Pages Where Domain Changed (Exit Points)', fontsize=14, weight='bold')
+        ax.set_xlabel('Number of Domain Changes')
+        ax.set_ylabel('Page Title')
+        plt.tight_layout()
+
+        
+        save_chart.save(fig, filename="Top Exit points of Domain")

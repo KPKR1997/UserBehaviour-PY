@@ -1,0 +1,5 @@
+[2025-05-29 03:24:33,774] 20 root - INFO - Chart - Most_visited_domain saved to artifacts\Most_visited_domain.png
+[2025-05-29 03:24:35,128] 20 root - INFO - Chart - Most_active_time saved to artifacts\Most_active_time.png
+[2025-05-29 03:24:36,785] 20 root - INFO - Chart - Domains after 6 hrs window saved to artifacts\Domains after 6 hrs window.png
+[2025-05-29 03:24:37,903] 20 root - INFO - Chart - Most typed domains saved to artifacts\Most typed domains.png
+[2025-05-29 03:24:39,087] 20 root - INFO - Chart - inactivity_by_date saved to artifacts\inactivity_by_date.png

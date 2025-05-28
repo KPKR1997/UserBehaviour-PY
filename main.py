@@ -24,3 +24,5 @@ if __name__ == "__main__":
     generate_chart.user_activity_time()
     generate_chart.domains_after_inactivity(240)
     generate_chart.most_typed_domains()
+    generate_chart.inactivity_by_date()
+    generate_chart.domain_exit_point()
